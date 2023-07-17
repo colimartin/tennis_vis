@@ -4,6 +4,8 @@ import world_map as map
 
 import pandas as pd
 
+import os
+
 def main():
     soup = atp.get_soup('https://www.atptour.com/en/rankings/singles')
     players = atp.get_top_players(soup)
@@ -12,8 +14,9 @@ def main():
     # To recreate tourn_map JSON
     """
     tourn_map = ptm.get_tourn_map(tourn_count_urls, players)
-    ptm.to_json(tourn_map)
+    ptm.dict_to_json(tourn_map)
     """
+ 
 
     # To get dict from existing tourn_map JSON
     tourn_map = ptm.json_to_dict('tourn_map.json')

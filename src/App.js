@@ -1,57 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
+import player_map_json from "./backend/tourn_map.json";
 
-function FetchJSON() {
-  fetch('./backend/tourn_map.json').then((res) => {
-    return res.json();
-  })
-  .then((data) => console.log(data));
-}
-
-function DropDown() {
-  const [open, setOpen] = useState()
-  const player_JSON = FetchJSON()
-
-  function handleOpen() {
-    setOpen(current => !current)
+function renderPlayers() {
+  const player_map = JSON.parse(JSON.stringify(player_map_json));
+  var players = []
+  for (var player in player_map) {
+    players.push(<button>{player}</button>)
   }
+  return players               
+ };
 
+const DropDown = ({open, trigger, menu}) => {
   return (
     <div className="dropdown">
-      <button className="button" onClick={handleOpen}>Select Player</button>
+      {trigger}
       {open ? (
         <ul className="menu">
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 1</button>
-          </li>
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 2</button>
-          </li>
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 3</button>
-          </li>
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 4</button>
-          </li>
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 5</button>
-          </li>
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 6</button>
-          </li>
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 7</button>
-          </li>
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 8</button>
-          </li>
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 9</button>
-          </li>
-          <li className="menu-item">
-            <button classname="dropdown-option">Menu 10</button>
-          </li>
+          {menu.map((menuItem, index) => (
+            <li key={index} className="menu-item">{menuItem}</li>
+          ))}
         </ul>
       ) : null}
     </div>
@@ -59,6 +28,17 @@ function DropDown() {
 }
 
 function App() {
+  const [open, setOpen] = useState()
+  const [map, setMap] = useState()
+
+  function handleOpen() {
+    setOpen(!open)
+  }
+
+  function handleMenu() {
+    setMap(true)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -68,10 +48,14 @@ function App() {
         <p>
           Select a top 100 player to see their travels this season
         </p>
-        <DropDown />
+        <DropDown 
+          open={open} 
+          trigger={<button className="button" onClick={handleOpen}>Select Player</button>}
+          menu={renderPlayers()}
+        />
         <a
           className="App-link"
-          href="https://github.com/colimartin/tennis-data"
+          href="https://github.com/colimartin/tennis_vis"
           target="_blank"
           rel="noopener noreferrer"
         >

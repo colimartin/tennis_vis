@@ -19,12 +19,12 @@ def get_tourn_map(tourn_count_urls, players):
     return tourn_map
 
 def json_to_dict(file):
-    with open(file) as json_file:
+    with open("c:/Users/Colin/projects/tennis_vis/src/backend/" + file) as json_file:
         return json.load(json_file)
 
 def dict_to_json(dict):
-    json = json.dumps(dict)
-    with open("tourn_map.json", "w") as json_file:
-        json_file.write(json)
+    dict_json = json.dumps(dict)
+    with open("c:/Users/Colin/projects/tennis_vis/src/backend/tourn_map.json", "w") as json_file:
+        json_file.write(dict_json)
 
 #print(tourn_map["Carlos Alcaraz"])
