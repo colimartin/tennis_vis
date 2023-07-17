@@ -30,6 +30,7 @@ const DropDown = ({open, trigger, menu}) => {
 function App() {
   const [open, setOpen] = useState()
   const [map, setMap] = useState()
+  const players = renderPlayers()
 
   function handleOpen() {
     setOpen(!open)
@@ -51,7 +52,7 @@ function App() {
         <DropDown 
           open={open} 
           trigger={<button className="button" onClick={handleOpen}>Select Player</button>}
-          menu={renderPlayers()}
+          menu={players}
         />
         <a
           className="App-link"
