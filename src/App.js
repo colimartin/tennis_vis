@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
 import player_map_json from "./backend/tourn_map.json";
+import D3Plotting from "./d3_plotting.js"
 
 const player_map = JSON.parse(JSON.stringify(player_map_json));
 
@@ -34,6 +35,7 @@ const MapComponent = (playerName) => {
     <div>
       <p>
         {name} Map
+        <D3Plotting />
       </p>
     </div>
   )
