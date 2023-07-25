@@ -3,23 +3,24 @@ import './App.css';
 import { useState } from "react";
 import player_map_json from "./backend/tourn_map.json";
 
+const player_map = JSON.parse(JSON.stringify(player_map_json));
+
 function renderPlayers() {
-  const player_map = JSON.parse(JSON.stringify(player_map_json));
   var players = []
   for (var player in player_map) {
-    players.push(<button>{player}</button>)
+    players.push({player})
   }
   return players               
  };
 
-const DropDown = ({open, trigger, menu}) => {
+const DropDown = ({open, trigger, menu, handleMenu}) => {
   return (
     <div className="dropdown">
       {trigger}
       {open ? (
         <ul className="menu">
           {menu.map((menuItem, index) => (
-            <li key={index} className="menu-item">{menuItem}</li>
+            <li><button key={index} className="menu-item" onClick={() => handleMenu({menuItem})}>{menuItem.player}</button></li>
           ))}
         </ul>
       ) : null}
@@ -27,16 +28,29 @@ const DropDown = ({open, trigger, menu}) => {
   )
 }
 
+const MapComponent = (playerName) => {
+  let name = playerName.playerName
+  return (
+    <div>
+      <p>
+        {name} Map
+      </p>
+    </div>
+  )
+}
+
 function App() {
   const [open, setOpen] = useState()
   const [map, setMap] = useState()
+  const [currPlayer, setCurrPlayer] = useState()
   const players = renderPlayers()
 
   function handleOpen() {
     setOpen(!open)
   }
 
-  function handleMenu() {
+  const handleMenu = (playerName) => {
+    setCurrPlayer(playerName.menuItem.player)
     setMap(true)
   }
 
@@ -53,7 +67,11 @@ function App() {
           open={open} 
           trigger={<button className="button" onClick={handleOpen}>Select Player</button>}
           menu={players}
+          handleMenu={handleMenu}
         />
+        { map ? <MapComponent playerName = {currPlayer}/>
+        : null
+        }
         <a
           className="App-link"
           href="https://github.com/colimartin/tennis_vis"
