@@ -22,9 +22,10 @@ def json_to_dict(file):
     with open("c:/Users/Colin/projects/tennis_vis/src/backend/" + file) as json_file:
         return json.load(json_file)
 
-def dict_to_json(dict):
+def dict_to_json(dict, name):
     dict_json = json.dumps(dict)
-    with open("c:/Users/Colin/projects/tennis_vis/src/backend/tourn_map.json", "w") as json_file:
+    with open("c:/Users/Colin/projects/tennis_vis/src/backend/" + name, "w") as json_file:
         json_file.write(dict_json)
+
 
 #print(tourn_map["Carlos Alcaraz"])
