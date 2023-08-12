@@ -11,19 +11,15 @@ const land50m = JSON.parse(JSON.stringify(countries50m));
 const land = topojson.feature(land50m, land50m.objects.land);
 
 function getLatAndLong(){
-  var long = []
-  var lat = []
+  var lat_long = []
   for (var tourn in tournaments) {
-    long.push(tournaments[tourn].long)
-    lat.push(tournaments[tourn].lat)
+    lat_long.push(tournaments[tourn])
   }
-  return [long, lat]
+  return lat_long
 }
 
 function MyMap() {
-  const lat_and_long = getLatAndLong();
-  const long = lat_and_long[0];
-  const lat = lat_and_long[1];
+  const tourn_lat_long = getLatAndLong();
   const ref = useRef();
   useEffect(() => {
     const playerMap = Plot.plot({
@@ -32,6 +28,7 @@ function MyMap() {
         Plot.graticule(),
         Plot.geo(land, {fill: "grey"}),
         Plot.sphere(),
+        Plot.dot(tourn_lat_long, {x: "long", y: "lat", r: 2, fill: "red"})
       ]
     })
     ref.current.append(playerMap);
@@ -44,7 +41,7 @@ function MyMap() {
 }
 
 export default function D3Plotting() {
-
+  
     return (
       <div>
         <p></p>
