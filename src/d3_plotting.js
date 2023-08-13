@@ -31,7 +31,6 @@ function getPlayerLatAndLong(player_tourns) {
 function MyMap({ player_tourns }) {
   const tourn_lat_long = getLatAndLong();
   const p_lat_long = getPlayerLatAndLong(player_tourns);
-  console.log(p_lat_long)
   const ref = useRef();
   useEffect(() => {
     const playerMap = Plot.plot({

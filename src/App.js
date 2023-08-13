@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
 import player_map_json from "./backend/tourn_map.json";
+
 import D3Plotting from "./d3_plotting.js"
+import PlayerInfo from "./player_info.js"
 
 const player_map = JSON.parse(JSON.stringify(player_map_json));
 
@@ -40,6 +42,9 @@ const MapComponent = (playerName) => {
     </div>
   )
 }
+
+//Player Info Component
+//<PlayerInfo player_name={name} player_tourns={player_map[name]}/>
 
 function App() {
   const [open, setOpen] = useState()
