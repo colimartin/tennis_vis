@@ -35,7 +35,7 @@ const MapComponent = (playerName) => {
     <div>
       <p>
         {name} Map
-        <D3Plotting />
+        <D3Plotting player_tourns={player_map[name]}/>
       </p>
     </div>
   )
