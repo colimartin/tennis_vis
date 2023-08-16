@@ -31,6 +31,8 @@ function getPlayerLatAndLong(player_tourns) {
 function MyMap({ player_tourns }) {
   const tourn_lat_long = getLatAndLong();
   const p_lat_long = getPlayerLatAndLong(player_tourns);
+  const p_first_tourn = [p_lat_long[0]];
+  const p_last_tourn = [p_lat_long[p_lat_long.length - 1]]
   const ref = useRef();
   useEffect(() => {
     const playerMap = Plot.plot({
@@ -39,8 +41,10 @@ function MyMap({ player_tourns }) {
         Plot.graticule(),
         Plot.geo(land, {fill: "grey"}),
         Plot.sphere(),
-        Plot.dot(tourn_lat_long, {x: "long", y: "lat", r: 2, fill: "red"}),
-        Plot.line(p_lat_long, {x: "long", y: "lat", stroke: "blue"})
+        Plot.dot(tourn_lat_long, {x: "long", y: "lat", r: 2, fill: "blue"}),
+        Plot.line(p_lat_long, {x: "long", y: "lat", stroke: "black"}),
+        Plot.dot(p_first_tourn, {x: "long", y: "lat", r: 2, fill: "lime"}),
+        Plot.dot(p_last_tourn, {x: "long", y: "lat", r: 2, fill: "red"})
       ]
     })
     ref.current.append(playerMap);
