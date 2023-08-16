@@ -2,7 +2,7 @@
   "name": "tennis_vis",
   "version": "0.1.0",
   "private": true,
-  "hompage": "http://colimartin.github.io/tennis_vis",
+  "homepage": "http://colimartin.github.io/tennis_vis",
   "dependencies": {
     "@observablehq/plot": "^0.6.9",
     "@testing-library/jest-dom": "^5.16.5",
