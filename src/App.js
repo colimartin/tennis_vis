@@ -38,6 +38,7 @@ const MapComponent = (playerName) => {
       <p>
         {name} Map
         <D3Plotting player_tourns={player_map[name]}/>
+        <PlayerInfo player_name={name} player_tourns={player_map[name]}/>
       </p>
     </div>
   )
