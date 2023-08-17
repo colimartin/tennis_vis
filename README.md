@@ -13,6 +13,8 @@ ATP Challenger tournaments (the "minor leagues" of tennis) are listed but not ma
 
 GitHub Pages: https://colimartin.github.io/tennis_vis/
 
+![alt text](https://github.com/colimartin/tennis_vis/blob/main/tennis_vis_screen.png?raw=true)
+
 ## Generating the Data
 
 ### ATP Tournaments Datasheet 
