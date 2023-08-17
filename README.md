@@ -15,6 +15,7 @@ GitHub Pages: https://colimartin.github.io/tennis_vis/
 
 ## Generating the Data
 
+### ATP Tournaments Datasheet 
 atp_tournaments.xlsx is a custom excel datasheet containing information on the 67 top level tournaments in men's tennis.
 The 7 columns are 
 - "name-official": the official name listed for the tournament on https://www.atptour.com/en/tournaments,
@@ -25,5 +26,7 @@ The 7 columns are
 - "level": the number of ATP ranking points given to the winner of the tournament, and thus the level of importance it carries in the ATP season. The 4 tennis majors (Australian Open, French Open, Wimbledon, US Open) are 2000, the year-end finals is 1500, the next level below is 1000, then 500, 250, and 0 for the 'United Cup', a 'FIFA World Cup' style exhibition tournament played at the beginning of the season,
 - "name-code": the shorter name codes that atptour.com uses to refer to tournaments in their site HTML.
 
-
+### Python Backend
+- atp_scraping.py deals with BeautifulSoup webscraping, getting the list of top 100 players, 
+- player_tourn_map.py generates a hashmap of each top 100 player 
 
