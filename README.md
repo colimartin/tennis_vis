@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# ATP Player Path Visualization
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ReactJS with a Python backend. ObservableJS Plots, BeautifulSoup, GeoPandas.
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+Uses data from the ATP tour website to compile a JSON file containing the tournaments each ATP top 100 player has participated in this year. Displays that information using ObservableJS Plots and a custom built database of ATP top level tennis tournaments for the React frontend. A Python GeoPandas mapping solution is also available in the source code. 
 
 ### `npm start`
 
