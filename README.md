@@ -29,6 +29,9 @@ The 7 columns are
 - "name-code": the shorter name codes that atptour.com uses to refer to tournaments in their site HTML.
 
 ### Python Backend
-- atp_scraping.py deals with BeautifulSoup webscraping, getting the list of top 100 players, 
-- player_tourn_map.py generates a hashmap of each top 100 player 
+- atp_scraping.py deals with BeautifulSoup webscraping, getting the list of top 100 players, the URLs to access the tournaments they've participated in, and their actual list of tournaments.
+- player_tourn_map.py generates a dictionary mapping each top 100 player to a list of their played tournaments. It also handles turning a dictionary into a JSON file saved to the "backend" folder, and turning a JSON file saved in the "backend" folder into a dictionary.
+- map.py uses Matplotlib and GeoPandas to plot the ATP tennis tournaments onto a world map. This visualization is unique to the backend and not used on the GitHub pages site.
+- main.py combines these files to accomplish several functions, which the user can pick and choose from.
+&nbsp;&nbsp;&nbsp;&nbsp;Testing
 
