@@ -25,13 +25,15 @@ The 7 columns are
 - "country": the three-letter code of the country in which the tournament takes place as determined by the International   Organization for Standardization https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3,
 - "lat": the latitude of the city rounded to 4 decimal places, 
 - "long": the longitude of the city rounded to 4 decimal places, 
-- "level": the number of ATP ranking points given to the winner of the tournament, and thus the level of importance it carries in the ATP season. The 4 tennis majors (Australian Open, French Open, Wimbledon, US Open) are 2000, the year-end finals is 1500, the next level below is 1000, then 500, 250, and 0 for the 'United Cup', a 'FIFA World Cup' style exhibition tournament played at the beginning of the season,
+- "level": the number of ATP ranking points given to the winner of the tournament, and thus the level of importance it carries in the ATP season. The 4 tennis majors (Australian Open, French Open, Wimbledon, US Open) are 2000, the year-end finals is 1500, the next level below is 1000, then 500, 250, and 0 for the 'United Cup', a 'FIFA World Cup' style exhibition tournament played at the beginning of the season, and the 'Laver Cup', the 'Ryder Cup' of tennis, both of which award no points.
 - "name-code": the shorter name codes that atptour.com uses to refer to tournaments in their site HTML.
 
 ### Python Backend
 - atp_scraping.py deals with BeautifulSoup webscraping, getting the list of top 100 players, the URLs to access the tournaments they've participated in, and their actual list of tournaments.
 - player_tourn_map.py generates a dictionary mapping each top 100 player to a list of their played tournaments. It also handles turning a dictionary into a JSON file saved to the "backend" folder, and turning a JSON file saved in the "backend" folder into a dictionary.
-- map.py uses Matplotlib and GeoPandas to plot the ATP tennis tournaments onto a world map. This visualization is unique to the backend and not used on the GitHub pages site.
+- map.py uses Matplotlib and GeoPandas to plot the ATP tennis tournaments  onto a world map. This visualization is unique to the backend and not used on the GitHub pages site.
 - main.py combines these files to accomplish several functions, which the user can pick and choose from.
-&nbsp;&nbsp;&nbsp;&nbsp;Testing
+&nbsp;&nbsp;&nbsp;&nbsp;--Creating tourn_map.json: Call player_tourn_map.py to build the tourn_map dictionary, then converting it into a JSON to make it accessible to the React frontend.
+&nbsp;&nbsp;&nbsp;&nbsp;--Create tournaments.json from atp_tournaments.xlsx to give the React frontend access to the latitude and longitude coordinates and names of the tournaments.
+&nbsp;&nbsp;&nbsp;&nbsp;--Map with map.py: Use atp_tournaments.xlsx to send tournament information to map.py to plot player travel in Python
 
