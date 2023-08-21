@@ -33,9 +33,7 @@ The 7 columns are
 - player_tourn_map.py generates a dictionary mapping each top 100 player to a list of their played tournaments. It also handles turning a dictionary into a JSON file saved to the "backend" folder, and turning a JSON file saved in the "backend" folder into a dictionary.
 - map.py uses Matplotlib and GeoPandas to plot the ATP tennis tournaments  onto a world map. This visualization is unique to the backend and not used on the GitHub pages site.
 - main.py combines these files to accomplish several functions, which the user can pick and choose from.
-&nbsp;&nbsp;&nbsp;&nbsp;Creating tourn_map.json: Call player_tourn_map.py to build the tourn_map dictionary, then converting it into a JSON to make it accessible to the React frontend.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Create tournaments.json from atp_tournaments.xlsx to give the React frontend access to the latitude and longitude coordinates and names of the tournaments.
-
-&nbsp;&nbsp;&nbsp;&nbsp;Map with map.py: Use atp_tournaments.xlsx to send tournament information to map.py to plot player travel in Python
+  - **Creating tourn_map.json**: Call player_tourn_map.py to build the tourn_map dictionary, then converting it into a JSON to make it accessible to the React frontend.
+  - **Create tournaments.json** from atp_tournaments.xlsx to give the React frontend access to the latitude and longitude coordinates and names of the tournaments.
+  - **Map with map.py**: Use atp_tournaments.xlsx to send tournament information to map.py to plot player travel in Python
 
