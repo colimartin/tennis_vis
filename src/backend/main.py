@@ -12,17 +12,17 @@ def main():
     tourn_count_urls = atp.get_tourn_count_urls(soup)
 
     # To recreate tourn_map JSON
-    """
     tourn_map = ptm.get_tourn_map(tourn_count_urls, players)
     ptm.dict_to_json(tourn_map, "tourn_map.json")
-    """
  
 
     # To get dict from existing tourn_map JSON
+    """
     tourn_map = ptm.json_to_dict('tourn_map.json')
 
     db = pd.read_excel('c:/Users/Colin/projects/tennis_vis/src/backend/atp_tournaments.xlsx')
     df = db[['lat', 'long', 'name-code']]
+    """
 
     # To create tournaments JSON from atp_tournaments.xlsx data
     """
