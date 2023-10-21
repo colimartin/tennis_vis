@@ -57,8 +57,9 @@
 .menu {
   position: absolute;
 
-  height: 150px;
+  height: 180px;
   overflow-y: scroll;
+  resize: vertical;
 
   list-style-type: none;
   margin: 5px 0;
